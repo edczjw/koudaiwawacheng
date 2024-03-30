@@ -1,0 +1,15 @@
+{
+  "enablePullDownRefresh": true,
+  "navigationBarTitleText": "夹机联盟",
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "gui-page": "/GraceUI5/components/gui-page",
+    "uni-sign-in": "/components/uni-sign-in/uni-sign-in",
+    "gui-speaker": "/GraceUI5/components/gui-speaker",
+    "u-sticky": "/uni_modules/uview-ui/components/u-sticky/u-sticky",
+    "u-tabs": "/uni_modules/uview-ui/components/u-tabs/u-tabs",
+    "gui-tags": "/GraceUI5/components/gui-tags",
+    "gui-popup": "/GraceUI5/components/gui-popup",
+    "gui-turntable": "/GraceUI5/components/gui-turntable"
+  }
+}

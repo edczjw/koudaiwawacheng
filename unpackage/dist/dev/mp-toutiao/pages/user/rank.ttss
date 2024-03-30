@@ -1,0 +1,19 @@
+
+.bgimg.data-v-42399872{width:750rpx; height:350rpx;}
+.ranking-list.data-v-42399872{width:690rpx; background-color:rgba(255,255,255,1); border-radius:20rpx; overflow:hidden;}
+.header-msg-item.data-v-42399872{width:200rpx; flex-direction:row; justify-content:center; align-items:center;}
+.header-msg-text.data-v-42399872{font-size:32rpx; font-weight:bold; color:#666666;}
+.header-msg-text-small.data-v-42399872{font-size:22rpx; margin:10rpx; color:#666666;}
+.header-msg-face.data-v-42399872{width:138rpx; height:138rpx; border-radius:120rpx;}
+.ranking-lists.data-v-42399872{padding:25rpx;}
+.ranking-lists-item.data-v-42399872{margin-bottom:28rpx; flex-direction:row; justify-content:space-between; flex-wrap:nowrap; align-items:center;}
+.ranking-lists-num.data-v-42399872{width:60rpx; line-height:80rpx; font-size:50rpx; color:#666666; font-weight:bold; font-style:italic; text-align:center;}
+.ranking-lists-image.data-v-42399872{width:100rpx; height:100rpx; border-radius:80rpx; margin:0 20rpx;}
+.ranking-lists-content.data-v-42399872{width:200rpx; margin:0 10rpx; flex:1;}
+.ranking-lists-content-name.data-v-42399872{font-size:30rpx; line-height:56rpx; color:#333333; line-height:50rpx;}
+.ranking-lists-content-desc.data-v-42399872{font-size:28rpx; line-height:36rpx}
+.ranking-lists-zan.data-v-42399872{width:150rpx;}
+.ranking-lists-zan-icon.data-v-42399872{font-size:50rpx; line-height:60rpx; text-align:center;}
+.ranking-lists-zan-num.data-v-42399872{font-size:22rpx; text-align:center;}
+.zan-active.data-v-42399872{color:#FF0036;}
+

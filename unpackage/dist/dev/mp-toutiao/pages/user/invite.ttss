@@ -1,0 +1,20 @@
+
+page{background-color:#7ACBDC;}
+.canvas-in{width:750rpx; overflow:hidden; position:absolute; z-index:1; left:0; top:-5000px;}
+.grace-canvas-img{font-size:0; width:750rpx;}
+.gui-grids-items{width:160rpx; margin:30rpx 50rpx;}
+.gui-share{padding:10rpx 30rpx;}
+.gui-grids-icon-img{width: 92rpx;}
+.share-btn{
+    width: 630rpx;
+    height: 96rpx;
+    line-height: 96rpx;
+    border-radius: 50px;
+    margin-top: 50rpx;
+    color: #000000;
+    font-size: $font-lg;
+&:after{
+        border-radius: 100px;
+}
+}
+

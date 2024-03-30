@@ -1,0 +1,13 @@
+
+.gui-page-refresh.data-v-18336c10{overflow:hidden}
+.gui-page-refresh-text.data-v-18336c10{line-height:32rpx;}
+.gui-page-refresh-icon.data-v-18336c10{padding:0 12rpx; line-height:40rpx;}
+@-webkit-keyframes gload-hide-data-v-18336c10{0%{opacity:1; height:50px;}
+70%{opacity:1; height:50px;}
+100%{opacity:0; height:0px;}}
+@keyframes gload-hide-data-v-18336c10{0%{opacity:1; height:50px;}
+70%{opacity:1; height:50px;}
+100%{opacity:0; height:0px;}}
+.gload-hide.data-v-18336c10{-webkit-animation:gload-hide-data-v-18336c10 1s linear;animation:gload-hide-data-v-18336c10 1s linear;}
+
+

@@ -1,0 +1,7 @@
+
+.doll-name.data-v-81191652{width:560rpx; line-height:50rpx;}
+.gui-common-line.data-v-81191652{height:18rpx;}
+.doll-footer.data-v-81191652{position:fixed; z-index:99; margin-left: 25rpx; bottom:30rpx; width:700rpx;}
+.modal-btns.data-v-81191652{line-height:88rpx; font-size:26rpx; text-align:center; width:200rpx;}
+.gui-bg-add-card.data-v-81191652{width: 300rpx;}
+

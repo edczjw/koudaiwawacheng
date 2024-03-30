@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "充值",
+  "usingComponents": {
+    "gui-page": "/GraceUI5/components/gui-page",
+    "gui-scroll-message": "/GraceUI5/components/gui-scroll-message"
+  }
+}

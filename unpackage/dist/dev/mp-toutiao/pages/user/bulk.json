@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "批量操作",
+  "usingComponents": {
+    "gui-radio": "/GraceUI5/components/gui-radio",
+    "gui-iphone-bottom": "/GraceUI5/components/gui-iphone-bottom"
+  }
+}

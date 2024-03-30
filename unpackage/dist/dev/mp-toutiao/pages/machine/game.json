@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "夹机联盟",
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "gui-page": "/GraceUI5/components/gui-page",
+    "gui-switch-navigation": "/GraceUI5/components/gui-switch-navigation",
+    "gui-popup": "/GraceUI5/components/gui-popup",
+    "gui-image": "/GraceUI5/components/gui-image"
+  }
+}

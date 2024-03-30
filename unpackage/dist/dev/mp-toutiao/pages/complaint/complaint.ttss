@@ -1,0 +1,56 @@
+@charset "UTF-8";
+/* 页面左右间距 */
+/* 文字尺寸 */
+/*文字颜色*/
+/* 边框颜色 */
+/* 图片加载中颜色 */
+/* 行为相关颜色 */
+.doll-info {
+  padding: 20rpx 30rpx;
+}
+.doll-info-checkbtn {
+  width: 60rpx;
+}
+.doll-info-image {
+  width: 130rpx;
+  margin-right: 20rpx;
+}
+.doll-info-body {
+  width: 400rpx;
+  flex: 1;
+  overflow: hidden;
+}
+.doll-info-title {
+  font-size: 36rpx;
+}
+.doll-info-price {
+  color: #FF0036;
+  font-size: 28rpx;
+}
+.doll-info-text {
+  font-size: 30rpx;
+}
+.reason-text {
+  padding: 30rpx;
+  background-color: #eaeaea;
+}
+.reason-list {
+  padding: 0 30rpx;
+}
+.reason-item {
+  height: 100rpx;
+}
+.confirm-btn {
+  width: 630rpx;
+  height: 96rpx;
+  line-height: 96rpx;
+  border-radius: 50px;
+  margin-top: 50rpx;
+  /* background: $uni-color-primary; */
+  color: #000000;
+  font-size: 32rpx;
+}
+.confirm-btn:after {
+  border-radius: 100px;
+}
+

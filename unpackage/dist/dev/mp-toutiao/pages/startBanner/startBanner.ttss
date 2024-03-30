@@ -1,0 +1,8 @@
+
+.gui-start-banner-skip{width:100rpx; height:50rpx; border-radius:50rpx; text-align:center; border:1px solid #999999; color:#999999; font-size:22rpx; line-height:50rpx; position:absolute; z-index:9999; top:80rpx; right:50rpx;}
+.gui-start-banner{width:750rpx; position:fixed; z-index:9998; top:0; left:0; bottom:0;}
+.gui-start-banner-swiper{width:750rpx; height:500rpx; background-color:#FFFFFF;}
+.gui-start-banner-swiper-item{width:750rpx; display:flex; flex-direction: column; justify-content:center; align-items:center; font-size:0;}
+.gui-start-banner-image{width:750rpx;}
+.gui-start-banner-close{width:220rpx; height:80rpx; border-radius:80rpx; margin-top:80rpx; text-align:center; border:1px solid #F97D7C; color:#F97D7C; font-size:28rpx; line-height:80rpx;}
+

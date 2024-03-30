@@ -1,0 +1,137 @@
+@charset "UTF-8";
+/* 页面左右间距 */
+/* 文字尺寸 */
+/*文字颜色*/
+/* 边框颜色 */
+/* 图片加载中颜色 */
+/* 行为相关颜色 */
+.gui-banner {
+  height: 228rpx;
+  border-radius: 10rpx;
+  font-size: 0;
+  position: relative;
+  margin-top: 15rpx;
+}
+.gui-banner-img {
+  width: 690rpx;
+  height: 228rpx;
+  border-radius: 10rpx;
+  opacity: 0.92;
+}
+.gui-banner-in {
+  height: 228rpx;
+  border-radius: 10rpx;
+  position: absolute;
+  z-index: 1;
+  left: 0;
+  top: 0;
+}
+.gui-h3 {
+  font-size: 38rpx;
+}
+.gui-text-center {
+  width: 690rpx;
+}
+.list {
+  padding: 0 30rpx;
+}
+.recharge {
+  padding: 15rpx 20rpx;
+  margin: 20rpx 0;
+  border-radius: 50rpx;
+  border: 2rpx solid #f1f2f3;
+}
+.recharge-image {
+  width: 130rpx;
+  margin-right: 20rpx;
+}
+.recharge-body {
+  width: 400rpx;
+  flex: 1;
+  overflow: hidden;
+}
+.recharge-title {
+  font-size: 36rpx;
+  font-weight: bold;
+}
+.recharge-price {
+  color: #FF6144;
+  font-size: 34rpx;
+  font-weight: bold;
+  background-color: #fff6f4;
+  border-radius: 20rpx;
+  width: 150rpx;
+  height: 60rpx;
+  text-align: center;
+  line-height: 60rpx;
+}
+.recharge-give {
+  color: #FF6144;
+  font-size: 28rpx;
+}
+.recharge-line {
+  height: 20rpx;
+  background-color: #F6F7F8;
+}
+.tip-msg {
+  white-space: nowrap;
+  line-height: 28rpx;
+  font-size: 28rpx;
+  color: #FF6144;
+}
+.ic-item {
+  width: 630rpx;
+  height: 135rpx;
+  margin-left: 30rpx;
+  padding: 20rpx;
+  font-size: 0;
+  border-radius: 15px;
+  margin-bottom: 25rpx;
+  position: relative;
+}
+.coin-content {
+  position: absolute;
+  left: 140rpx;
+  top: 10rpx;
+}
+.desc-content {
+  position: absolute;
+  left: 140rpx;
+  top: 60rpx;
+  width: 320rpx;
+}
+.recharge-card-price {
+  color: #FF6144;
+  font-size: 34rpx;
+  font-weight: bold;
+  background-color: #fff6f4;
+  border-radius: 20rpx;
+  width: 150rpx;
+  height: 60rpx;
+  text-align: center;
+  line-height: 60rpx;
+}
+.recharge-card-title {
+  position: absolute;
+  left: 20rpx;
+  top: 10rpx;
+  width: 100rpx;
+  height: 115rpx;
+  color: #FF6144;
+  font-size: 36rpx;
+  font-weight: bold;
+  background-color: #fff6f4;
+  border-radius: 20rpx;
+  text-align: center;
+  line-height: 60rpx;
+}
+.coin-content-text {
+  font-size: 32rpx;
+  line-height: 50rpx;
+  font-weight: bold;
+}
+.desc-content-text {
+  font-size: 24rpx;
+  line-height: 30rpx;
+}
+

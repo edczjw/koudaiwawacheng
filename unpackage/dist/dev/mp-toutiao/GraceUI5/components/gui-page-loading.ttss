@@ -1,0 +1,26 @@
+
+.gui-page-loading.data-v-227b3cb1{width:750rpx; position:fixed; left:0; top:0; bottom:0; flex:1; z-index:99999;}
+.gui-page-loading-points.data-v-227b3cb1{width:20rpx; height:20rpx; border-radius:50rpx; margin:10rpx; opacity:0.5;}
+@-webkit-keyframes pageLoading1-data-v-227b3cb1{0% {opacity:0.5; -webkit-transform:scale(1); transform:scale(1);}
+40% {opacity:1; -webkit-transform:scale(1.5); transform:scale(1.5);}
+60%{opacity:0.5; -webkit-transform:scale(1); transform:scale(1);}}
+@keyframes pageLoading1-data-v-227b3cb1{0% {opacity:0.5; -webkit-transform:scale(1); transform:scale(1);}
+40% {opacity:1; -webkit-transform:scale(1.5); transform:scale(1.5);}
+60%{opacity:0.5; -webkit-transform:scale(1); transform:scale(1);}}
+@-webkit-keyframes pageLoading2-data-v-227b3cb1{20% {opacity:0.5; -webkit-transform:scale(1); transform:scale(1);}
+60% {opacity:1; -webkit-transform:scale(1.5); transform:scale(1.5);}
+80% {opacity:0.5; -webkit-transform:scale(1); transform:scale(1);}}
+@keyframes pageLoading2-data-v-227b3cb1{20% {opacity:0.5; -webkit-transform:scale(1); transform:scale(1);}
+60% {opacity:1; -webkit-transform:scale(1.5); transform:scale(1.5);}
+80% {opacity:0.5; -webkit-transform:scale(1); transform:scale(1);}}
+@-webkit-keyframes pageLoading3-data-v-227b3cb1{40% {opacity:0.5; -webkit-transform:scale(1); transform:scale(1);}
+80% {opacity:1; -webkit-transform:scale(1.5); transform:scale(1.5);}
+100% {opacity:0.5; -webkit-transform:scale(1); transform:scale(1);}}
+@keyframes pageLoading3-data-v-227b3cb1{40% {opacity:0.5; -webkit-transform:scale(1); transform:scale(1);}
+80% {opacity:1; -webkit-transform:scale(1.5); transform:scale(1.5);}
+100% {opacity:0.5; -webkit-transform:scale(1); transform:scale(1);}}
+.animate1.data-v-227b3cb1{-webkit-animation:pageLoading1-data-v-227b3cb1 1.2s infinite linear;animation:pageLoading1-data-v-227b3cb1 1.2s infinite linear;}
+.animate2.data-v-227b3cb1{-webkit-animation:pageLoading2-data-v-227b3cb1 1.2s infinite linear;animation:pageLoading2-data-v-227b3cb1 1.2s infinite linear;}
+.animate3.data-v-227b3cb1{-webkit-animation:pageLoading3-data-v-227b3cb1 1.2s infinite linear;animation:pageLoading3-data-v-227b3cb1 1.2s infinite linear;}
+
+

@@ -1,21 +1,22 @@
 <template>
 	<view class="app">
-        <view class="title">
+        <!-- <view class="title">
             <view class="status-bar"></view>
             <u-icon class="back-icon" name="arrow-left" size="22" :bold="true" @click="onBack"></u-icon>
-        </view>
+        </view> -->
 		<!-- #ifdef H5 -->
 		<view class="navigateBack-btn" @click="$utils.navigateBack()">
 			<image class="navigateBack-img" src="../../static/imgs/goback.png"></image>
 		</view>
-		<!-- #endif -->
-		<view class="price-box">
+		<!-- #endif --> 
+		<!-- <view class="price-box">
 			<text>支付金额</text>
 			<text class="price">{{itemPrice}}</text>
-		</view>
+		</view> -->
 
 		<view class="pay-type-list">
-			<view v-for="(item, index) in methodList" :key="index" class="type-item b-b" @click="changePayType(index)">
+			由于政策原因暂时无法充值，了解详情可联系客服1056811484@qq.com 注意:如果您未满18岁，请在监护人陪同下操作，未成年人禁止充值！
+			<!-- <view v-for="(item, index) in methodList" :key="index" class="type-item b-b" @click="changePayType(index)">
 				<image :src="$utils.formatImg(item.icon)" style="width: 50rpx;height:50rpx;margin-right: 20rpx;"></image>
 				<view class="con">
 					<text class="tit">{{item.name}}</text>
@@ -24,10 +25,10 @@
 					<radio value="" color="#fa436a" :checked='payType == index' />
 					</radio>
 				</label>
-			</view>
+			</view> -->
 		</view>
 		
-		<text class="mix-btn" @click="confirm">确认支付</text>
+		<!-- <text class="mix-btn" @click="confirm">确认支付</text> -->
         <u-loading-page class="loading-page" :loading="showLoading" bgColor='#000' loadingText="支付中..." 
         loadingMode='spinner'></u-loading-page>
         <u-modal :show="showResult" content='支付成功' @confirm="close"></u-modal>
@@ -246,13 +247,18 @@
 				font-size: 40upx;
 			}
 		}
-	}
-
+	} 
 	.pay-type-list {
 		margin-top: 20upx;
 		background-color: #fff;
-		padding-left: 60upx;
-		
+		// padding-left: 60upx;
+		text-align: justify;
+		border: 1px solid #eee;
+		padding: 20px;
+		margin: 20px;
+		background-color: #eee;
+		border-radius: 10px;
+		margin-top: 60px;		
 		.type-item{
 			height: 120upx;
 			padding: 20upx 0;

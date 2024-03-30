@@ -1,0 +1,8 @@
+{
+  "enablePullDownRefresh": true,
+  "navigationBarTitleText": "积分商城",
+  "usingComponents": {
+    "ddw-switch-navigation": "/GraceUI5/components/custom/ddw-switch-navigation",
+    "uni-load-more": "/components/uni-load-more/uni-load-more"
+  }
+}

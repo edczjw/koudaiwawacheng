@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "金币明细",
+  "usingComponents": {
+    "gui-page": "/GraceUI5/components/gui-page",
+    "gui-empty": "/GraceUI5/components/gui-empty"
+  }
+}

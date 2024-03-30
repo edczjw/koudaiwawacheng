@@ -1,0 +1,33 @@
+
+.gui-sbody.data-v-325fdc7c{width:750rpx;}
+.gui-page-loading.data-v-325fdc7c{width:750rpx; position:fixed; left:0; top:0; bottom:0; flex:1; z-index:99999;}
+.gui-page-loading-points.data-v-325fdc7c{width:20rpx; height:20rpx; border-radius:50rpx; margin:10rpx;}
+.gui-sbody.data-v-325fdc7c{min-height:calc(100vh - 0px - 0px);}
+@-webkit-keyframes pageLoading1-data-v-325fdc7c{0% {opacity:0.5; -webkit-transform:scale(1); transform:scale(1);}
+40% {opacity:1; -webkit-transform:scale(1.5); transform:scale(1.5);}
+60%{opacity:0.5; -webkit-transform:scale(1); transform:scale(1);}}
+@keyframes pageLoading1-data-v-325fdc7c{0% {opacity:0.5; -webkit-transform:scale(1); transform:scale(1);}
+40% {opacity:1; -webkit-transform:scale(1.5); transform:scale(1.5);}
+60%{opacity:0.5; -webkit-transform:scale(1); transform:scale(1);}}
+@-webkit-keyframes pageLoading2-data-v-325fdc7c{20% {opacity:0.5; -webkit-transform:scale(1); transform:scale(1);}
+60% {opacity:1; -webkit-transform:scale(1.5); transform:scale(1.5);}
+80% {opacity:0.5; -webkit-transform:scale(1); transform:scale(1);}}
+@keyframes pageLoading2-data-v-325fdc7c{20% {opacity:0.5; -webkit-transform:scale(1); transform:scale(1);}
+60% {opacity:1; -webkit-transform:scale(1.5); transform:scale(1.5);}
+80% {opacity:0.5; -webkit-transform:scale(1); transform:scale(1);}}
+@-webkit-keyframes pageLoading3-data-v-325fdc7c{40% {opacity:0.5; -webkit-transform:scale(1); transform:scale(1);}
+80% {opacity:1; -webkit-transform:scale(1.5); transform:scale(1.5);}
+100% {opacity:0.5; -webkit-transform:scale(1); transform:scale(1);}}
+@keyframes pageLoading3-data-v-325fdc7c{40% {opacity:0.5; -webkit-transform:scale(1); transform:scale(1);}
+80% {opacity:1; -webkit-transform:scale(1.5); transform:scale(1.5);}
+100% {opacity:0.5; -webkit-transform:scale(1); transform:scale(1);}}
+.animate1.data-v-325fdc7c{-webkit-animation:pageLoading1-data-v-325fdc7c 1.2s infinite linear;animation:pageLoading1-data-v-325fdc7c 1.2s infinite linear;}
+.animate2.data-v-325fdc7c{-webkit-animation:pageLoading2-data-v-325fdc7c 1.2s infinite linear;animation:pageLoading2-data-v-325fdc7c 1.2s infinite linear;}
+.animate3.data-v-325fdc7c{-webkit-animation:pageLoading3-data-v-325fdc7c 1.2s infinite linear;animation:pageLoading3-data-v-325fdc7c 1.2s infinite linear;}
+.gui-header.data-v-325fdc7c{width:750rpx; position:fixed; left:0; top:0;}
+.gui-page-footer.data-v-325fdc7c{width:750rpx; position:fixed; left:0; bottom:0;}
+.gui-page-status-bar.data-v-325fdc7c{width:750rpx;}
+.gui-page-pendant.data-v-325fdc7c{position:fixed;}
+.gui-page-fixed-top.data-v-325fdc7c{position:fixed; top:44px; left:0px;  width:750rpx; z-index:99998; overflow:hidden;}
+.gui-page-loadmore.data-v-325fdc7c{padding-bottom:30rpx;}
+

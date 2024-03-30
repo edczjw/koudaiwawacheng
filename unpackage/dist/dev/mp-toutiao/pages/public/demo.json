@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "演示",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "gui-right-menus": "/GraceUI5/components/gui-right-menus"
+  }
+}

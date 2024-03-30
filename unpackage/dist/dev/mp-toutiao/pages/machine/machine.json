@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "机器列表",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "gui-page": "/GraceUI5/components/gui-page",
+    "gui-image": "/GraceUI5/components/gui-image",
+    "gui-tags": "/GraceUI5/components/gui-tags"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "收货地址",
+  "usingComponents": {
+    "gui-empty": "/GraceUI5/components/gui-empty"
+  }
+}

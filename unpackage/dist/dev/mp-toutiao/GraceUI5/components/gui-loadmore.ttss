@@ -1,0 +1,5 @@
+
+.gui-load-more{overflow:hidden; padding:25rpx;}
+.gui-load-more-text{line-height:35rpx;}
+.gui-load-more-icon{padding:0 12rpx; line-height:35rpx;}
+

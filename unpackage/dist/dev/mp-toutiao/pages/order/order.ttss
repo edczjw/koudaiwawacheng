@@ -1,0 +1,15 @@
+
+.header{padding:15rpx 30rpx; height:100rpx;}
+.gui-order{background-color:#FFFFFF; padding:20rpx; margin:25rpx; margin-bottom:0rpx; border-radius:10rpx;}
+.gui-order-number{line-height:50rpx; font-size:26rpx; width:300rpx; flex:1;}
+.gui-shop{line-height:60rpx; font-size:28rpx; font-weight:bold; color:#333333;}
+.gui-order-goods{flex-direction:row; flex-wrap:nowrap; padding-bottom:20rpx;}
+.gui-order-goods-img{width:100rpx; height:100rpx;}
+.gui-order-goods-name{line-height:40rpx; width:200rpx; flex:1; overflow:hidden; font-size:26rpx; margin-left:20rpx; margin-right:20rpx; color:#333333;}
+.gui-order-goods-price{font-size:24rpx; line-height:50rpx; color:#333333; width:150rpx; text-align:right;}
+.gui-order-footer{margin-top:2px;}
+.gui-order-status{line-height:50rpx; color:#999999; font-size:26rpx; width:100rpx; text-align:center;}
+.gui-order-btn{width:150rpx; height:50rpx; line-height:50rpx; color:#999999; font-size:22rpx; text-align:center; border-radius:60rpx; margin-left:20rpx;}
+.gui-order-btn-red{border-color:#FF0036; color:#FF0036;}
+.gui-order-btn-green{border-color:green; color:green;}
+

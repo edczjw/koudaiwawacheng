@@ -1,0 +1,21 @@
+
+.gui-shoppingcard{border-radius:8rpx; padding:20rpx 30rpx;}
+.gui-shopp-name{width:200rpx; flex:1;}
+.gui-shopp-go{width:120rpx; text-align:right;}
+.gui-shoppingcard-goods{padding:20rpx 30rpx; height: 180rpx;}
+.gui-shoppingcard-goods-checkbtn{width:60rpx;}
+.gui-shoppingcard-goods-image{width:120rpx; margin-right:20rpx;}
+.gui-shoppingcard-goods-body{width:400rpx; flex:1; overflow:hidden;}
+.gui-shoppingcard-goods-title{font-size:32rpx;}
+.gui-shoppingcard-goods-price{color:#FF0036; font-size:28rpx;}
+.gui-shoppingcard-goods-number{padding:2px 0; font-size:28rpx;}
+.gui-shoppingcard-remove{text-align:right; line-height:50rpx; margin-top:20rpx; font-size:24rpx;}
+.gui-shoppingcard-footer{position:fixed; z-index:99; left:0; bottom:0; width:750rpx; padding-left:30rpx;}
+.gui-shoppingcard-checkbtn{width:200rpx;}
+.gui-shoppingcard-count{width:200rpx; flex:1; height:100rpx; font-size:28rpx; text-align:center; background-color: #008AFF;}
+.gui-shoppingcard-checkout{width:260rpx; height:100rpx; line-height:100rpx; font-size:28rpx; text-align:center;}
+/* 如果购物车放在 switch 页面并且是 h5 端请打开注释启用下面的样式 */
+
+
+
+

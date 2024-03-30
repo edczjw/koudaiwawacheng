@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "gui-refresh": "/GraceUI5/components/gui-refresh",
+    "gui-loadmore": "/GraceUI5/components/gui-loadmore",
+    "gui-page-loading": "/GraceUI5/components/gui-page-loading"
+  },
+  "component": true
+}

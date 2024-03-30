@@ -1,0 +1,17 @@
+
+.ucenter-face{width:100rpx; height:100rpx;}
+.ucenter-face-image{width:100rpx; height:100rpx;}
+.ucenter-line{height:20rpx; background-color:#F6F7F8; margin:16rpx 0;}
+.logoff{line-height:88rpx; font-size:28rpx;}
+.gui-list-title-text{line-height:60rpx;}
+.distribution-title{font-size: 30rpx; font-weight: bold;}
+.grid-text{font-size: 26rpx; color: #666;}
+.distribution-content{margin: 20rpx 0 30rpx 0;}
+.grid-text {
+        font-size: 14px;
+        /* color: #64666a; */
+        padding: 10rpx 0 20rpx 0rpx;
+
+        box-sizing: border-box;
+}
+

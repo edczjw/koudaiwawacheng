@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "gui-image": "/GraceUI5/components/gui-image"
+  },
+  "component": true
+}

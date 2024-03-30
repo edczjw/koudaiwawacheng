@@ -1,0 +1,13 @@
+{
+  "component": true,
+  "usingComponents": {
+    "index2--z-paging--refresher--2406": "/pages/index/index2--z-paging--refresher--2406",
+    "z-paging": "/uni_modules/z-paging/components/z-paging/z-paging",
+    "u-navbar": "/uni_modules/uview-ui/components/u-navbar/u-navbar",
+    "custom-refresher": "/components/custom-refresher/custom-refresher",
+    "ddw-swiper": "/GraceUI5/components/custom/ddw-swiper",
+    "gui-speaker": "/GraceUI5/components/gui-speaker",
+    "gui-switch-navigation": "/GraceUI5/components/gui-switch-navigation",
+    "doll-swiper-item": "/pages/index/doll-swiper-item"
+  }
+}

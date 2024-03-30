@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "gui-popup": "/GraceUI5/components/gui-popup"
+  },
+  "component": true
+}

@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "我要申诉",
+  "usingComponents": {
+    "iz-uploader-img": "/components/iz-aloss-uploader-img/iz-aloss-uploader-img"
+  }
+}

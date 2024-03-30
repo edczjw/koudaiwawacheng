@@ -1,0 +1,1 @@
+<view class="gui-margin gui-margin-top"><view class="gui-padding"><text class="gui-h4"></text></view><view class="ql-container _div"><view class="ql-editor _div"><mp-html vue-id="7f5579fc-1" content="{{html}}" bind:__l="__l"></mp-html></view></view><view class="gui-margin-top" style="height:20rpx;"></view></view>

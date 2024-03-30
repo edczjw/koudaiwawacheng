@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "z-paging": "/uni_modules/z-paging/components/z-paging/z-paging",
+    "gui-image": "/GraceUI5/components/gui-image",
+    "gui-tags": "/GraceUI5/components/gui-tags"
+  },
+  "component": true
+}

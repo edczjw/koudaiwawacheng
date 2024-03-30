@@ -257,8 +257,9 @@ export default {
                 nativeShare.setShareData({
                     // icon: 'https://pic3.zhimg.com/v2-080267af84aa0e97c66d5f12e311c3d6_xl.jpg',
                     link: 'https://kdwwc.fszhuazhuale.com/#/',
-                    title: '口袋娃娃城',
-                    desc: '口袋娃娃城',
+                    // title: '夹机联盟',
+					title:'夹机联盟',
+                    desc: '夹机联盟',
                 })
                 // 唤起浏览器原生分享组件(如果在微信中不会唤起，此时call方法只会设置文案。类似setShareData)
                 try {

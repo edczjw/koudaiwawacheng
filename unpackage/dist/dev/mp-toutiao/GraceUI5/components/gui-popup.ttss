@@ -1,0 +1,12 @@
+
+.gui-popup{width:750rpx; position:fixed; z-index:99999; left:0; top:0; bottom:0; flex:1;}
+.gui-popup-content{overflow:hidden;}
+.gui-fade-out{opacity:0;}
+.gui-popup-center{-webkit-transform:scale(0.3,0.3);transform:scale(0.3,0.3);}
+.gui-popup-top{-webkit-transform:translateY(-1000px);transform:translateY(-1000px);}
+.gui-popup-bottom{-webkit-transform:translateY(600px);transform:translateY(600px);}
+.gui-popup-left{-webkit-transform:translateX(-600px);transform:translateX(-600px);}
+.gui-popup-right{-webkit-transform:translateX(600px);transform:translateX(600px);}
+.gui-popup{height:100%;}
+
+

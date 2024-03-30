@@ -1,0 +1,1 @@
+<view class="gui-padding"><web-view src="{{linkUrl}}"></web-view></view>

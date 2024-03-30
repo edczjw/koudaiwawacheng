@@ -1,0 +1,11 @@
+{
+  "navigationStyle": "custom",
+  "navigationBarTitleText": "娃娃详情",
+  "usingComponents": {
+    "gui-page": "/GraceUI5/components/gui-page",
+    "gui-header-leading": "/GraceUI5/components/gui-header-leading",
+    "ddw-address-action-sheet": "/GraceUI5/components/custom/ddw-address-action-sheet",
+    "gui-modal": "/GraceUI5/components/gui-modal",
+    "gui-iphone-bottom": "/GraceUI5/components/gui-iphone-bottom"
+  }
+}

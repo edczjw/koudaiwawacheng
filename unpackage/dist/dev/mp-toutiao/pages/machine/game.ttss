@@ -1,0 +1,41 @@
+
+.modal-btns {line-height: 88rpx;font-size: 26rpx;text-align: center;width: 200rpx;}
+.gui-grids-items {width: 120rpx;}
+.demo{width:350rpx; margin:10rpx;}
+.button{width:90rpx; height:90rpx; border-radius:8rpx; margin:10rpx;}
+.button-text{font-size:38rpx; text-align:center; line-height:90rpx;}
+.face-image {height: 50rpx;width: 50rpx;border-radius:50rpx;}
+.gui-badge{border-radius:38rpx; height:38rpx; line-height:38rpx;  font-size:22rpx;margin-left: -10rpx;}
+.game-title{width:350rpx; height:50rpx;margin-left: -50rpx;margin-right: 30rpx;font-size: 32rpx;}
+.game-text-margin{margin: 10rpx 10rpx;}
+.game-body{border: 5rpx;border-color: #ffffff;border-radius: 40rpx;background-color: #ffffff;}
+.game-webview{width: 695rpx;position: relative;margin: 10rpx;}
+.game-info{height: 60rpx;}
+/* .game-viewer{margin-top: 0rpx;margin-bottom: -10rpx;} */
+.game-player{position: absolute;left: 35rpx; width: 320rpx;height: 60rpx;top:40rpx;}
+.game-player-item{height: 80rpx;width:80rpx;border-radius:80rpx;opacity: 0.9;}
+.game-viewer{position: absolute;right: 35rpx; height: 60rpx;top:40rpx;}
+.game-viewer-item{height: 60rpx;width:60rpx;border-radius:60rpx;opacity: 0.8;}
+.game-roomname{position: absolute;left: 35rpx;width: 180rpx;height: 40rpx;}
+.game-roomname-text{font-size: 26rpx;color: #d6d6d6;}
+.game-collectbtn-border{width: 140rpx;height:120rpx;border-radius: 50rpx;padding: 15rpx;background-color: #e6e6e6;margin-left: 10rpx;margin-right: 10rpx;}
+.game-collectbtn-inner{width: 110rpx;height:100rpx;border-radius: 40rpx;background-color: #ffffff;}
+.game-coinbtn-border{width: 160rpx;height:120rpx;border-radius: 50rpx;padding: 10rpx;}
+.game-playbtn-view{width: 300rpx;height:120rpx;}
+.game-playbtn-text{position: absolute;bottom: 85rpx;left:210rpx; text-align: center;width: 300rpx;font-size: 24rpx;color: #e3e3e3;}
+.game-playbtn-img{width: 300rpx;height:120rpx}
+.game-controlbtn-img{width: 90rpx;height:90rpx}
+.game-catchbtn-view{width: 200rpx;height:150rpx;}
+.game-catchbtn-text{position: absolute;top: 90rpx;left:530rpx; text-align: center;width: 140rpx;font-size: 42rpx;color: #ffffff;font-weight: bold;}
+.game-catchbtn-img{width: 200rpx;height:150rpx}
+.game-coinbtn-text{font-size: 30rpx;line-height:35rpx; text-align:center;}
+.game-rechargebtn{border-radius: 25rpx;}
+.game-rechargebtn-text{padding-right:10rpx;font-size: 30rpx;}
+.game-detail-text{margin-left:60rpx;color: #626262;}
+.game-control-view{width: 430rpx;}
+.tool-bar{position: absolute;right: 30rpx;width: 80rpx;height: 300rpx; background-color: rgba(83, 83, 83, 0.3);border-top-left-radius: 40rpx;border-bottom-left-radius: 40rpx;opacity: 0.6;}
+.tool-bar-item{width: 50rpx;height: 50rpx;margin-left: 15rpx;margin-top: 30rpx;}
+.btn-hover{opacity:0.3}
+.demo-close{width:100rpx; height:100rpx; line-height:100rpx; opacity:0.88; text-align:center; font-size:58rpx;}
+.preventLongpress {pointer-events: none;}
+

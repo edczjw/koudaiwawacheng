@@ -1,0 +1,15 @@
+
+.gui-scroll-body.data-v-112a3a7a{overflow:hidden;}
+.gui-scrolling.data-v-112a3a7a{-webkit-animation:graceScrollingx-data-v-112a3a7a 12s linear infinite;animation:graceScrollingx-data-v-112a3a7a 12s linear infinite;}
+@-webkit-keyframes graceScrollingx-data-v-112a3a7a{
+0% { -webkit-transform:translateX(60%); transform:translateX(60%);
+}
+100% { -webkit-transform: translateX(-100%); transform: translateX(-100%);
+}}
+@keyframes graceScrollingx-data-v-112a3a7a{
+0% { -webkit-transform:translateX(60%); transform:translateX(60%);
+}
+100% { -webkit-transform: translateX(-100%); transform: translateX(-100%);
+}}
+
+

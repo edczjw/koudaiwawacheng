@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "",
+  "usingComponents": {
+    "gui-area-picker": "/GraceUI5/components/gui-area-picker"
+  }
+}

@@ -1,0 +1,1 @@
+<view class="refresher-container data-v-d8ff52f8"><image class="refresher-image data-v-d8ff52f8" mode="aspectFit" src="/static/gif/refresher_loading.gif"></image><text class="refresher-text data-v-d8ff52f8">{{statusText}}</text></view>

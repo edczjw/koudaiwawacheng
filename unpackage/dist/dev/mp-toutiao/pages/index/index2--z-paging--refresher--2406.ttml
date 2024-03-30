@@ -1,0 +1,1 @@
+<custom-refresher vue-id="6c448baf-2" status="{{refresherStatus}}" bind:__l="__l"></custom-refresher>

@@ -1,0 +1,10 @@
+
+.nav-active-line.data-v-7b52bbac{margin-top:6rpx;}
+.gui-nav-center.data-v-7b52bbac{justify-content:center; text-align:center;}
+@-webkit-keyframes gui-nav-scale-data-v-7b52bbac{0%{-webkit-transform: scale(0.1);transform: scale(0.1);}
+100%{-webkit-transform: scale(1);transform: scale(1);}}
+@keyframes gui-nav-scale-data-v-7b52bbac{0%{-webkit-transform: scale(0.1);transform: scale(0.1);}
+100%{-webkit-transform: scale(1);transform: scale(1);}}
+.gui-nav-scale.data-v-7b52bbac{-webkit-animation:gui-nav-scale-data-v-7b52bbac 350ms forwards;animation:gui-nav-scale-data-v-7b52bbac 350ms forwards;}
+.gui-nav-tips.data-v-7b52bbac{text-align:center; line-height:30rpx; height:30rpx; border-radius:50rpx; margin-top:5rpx; margin-left:8rpx;}
+

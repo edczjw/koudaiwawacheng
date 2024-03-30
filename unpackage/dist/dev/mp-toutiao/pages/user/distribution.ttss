@@ -1,0 +1,49 @@
+@charset "UTF-8";
+/* 页面左右间距 */
+/* 文字尺寸 */
+/*文字颜色*/
+/* 边框颜色 */
+/* 图片加载中颜色 */
+/* 行为相关颜色 */
+page, .content {
+  background: #f8f8f8;
+}
+.distribution {
+  background-color: #fff;
+  margin: 20rpx 20rpx;
+  border-radius: 30rpx;
+  padding: 10rpx;
+}
+.title {
+  font-size: 32rpx;
+  font-weight: bold;
+  margin: 10rpx 20rpx;
+}
+.u-grid-item {
+  margin: 20rpx 0;
+}
+.grid-icon {
+  font-size: 55rpx;
+  margin-bottom: 10rpx;
+}
+.grid-text {
+  font-size: 28rpx;
+}
+.ucenter-face {
+  width: 100rpx;
+  height: 100rpx;
+}
+.ucenter-face-image {
+  width: 100rpx;
+  height: 100rpx;
+}
+.ucenter {
+  margin: 15rpx 20rpx;
+}
+.grid-text {
+  font-size: 14px;
+  /* color: #64666a; */
+  padding: 10rpx 0 20rpx 0rpx;
+  box-sizing: border-box;
+}
+

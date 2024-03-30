@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "提现记录",
+  "usingComponents": {
+    "gui-tags": "/GraceUI5/components/gui-tags",
+    "uni-load-more": "/components/uni-load-more/uni-load-more"
+  }
+}

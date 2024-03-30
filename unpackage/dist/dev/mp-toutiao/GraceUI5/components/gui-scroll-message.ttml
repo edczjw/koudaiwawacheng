@@ -1,0 +1,1 @@
+<view class="gui-scroll-body gui-flex gui-rows gui-nowrap data-v-112a3a7a"><view class="gui-scroll-msg gui-scrolling data-v-112a3a7a" style="{{'animation-duration:'+(speed+'s')+';'}}"><slot></slot></view></view>

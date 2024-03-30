@@ -1,0 +1,1 @@
+<view class="content gui-margin"><view class="row b-b"><input class="input" type="text" placeholder="请输入口令,兑换福利" placeholder-class="placeholder" data-event-opts="{{[['input',[['__set_model',['','pwd','$event',[]]]]]]}}" value="{{pwd}}" bindinput="__e"/></view><button data-event-opts="{{[['tap',[['confirm',['$event']]]]]}}" class="add-btn" bindtap="__e">提交</button></view>

@@ -19,7 +19,7 @@
 			"path": "pages/index/index",
 			"style": {
 		        "enablePullDownRefresh": true,
-				"navigationBarTitleText": "口袋娃娃城",
+				"navigationBarTitleText": "夹机联盟",
 				"navigationStyle": "custom",
 				"app-plus":{
 					"subNVues":[{
@@ -113,7 +113,7 @@
 		{
 			"path": "pages/machine/game",
 			"style": {
-				"navigationBarTitleText": "口袋娃娃城",
+				"navigationBarTitleText": "夹机联盟",
 				"navigationStyle" : "custom",
 				"app-plus":{
 					"subNVues":[{

@@ -1,0 +1,7 @@
+
+.product-name.data-v-0e9671aa{width:560rpx; line-height:50rpx;}
+.product-price.data-v-0e9671aa{color:#FF7900; line-height:60rpx; font-size:30rpx; font-weight:bold;}
+.gui-common-line.data-v-0e9671aa{height:18rpx;}
+.product-footer.data-v-0e9671aa{position:fixed; z-index:99; margin-left: 25rpx; bottom:0; width:700rpx;}
+.modal-btns.data-v-0e9671aa{line-height:88rpx; font-size:26rpx; text-align:center; width:200rpx;}
+

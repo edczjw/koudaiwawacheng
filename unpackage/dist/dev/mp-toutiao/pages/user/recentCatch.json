@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "最近夹中的娃娃",
+  "usingComponents": {
+    "gui-column": "/GraceUI5/components/gui-column",
+    "uni-load-more": "/components/uni-load-more/uni-load-more"
+  }
+}

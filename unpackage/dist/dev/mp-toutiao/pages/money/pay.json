@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "支付",
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "u-icon": "/uni_modules/uview-ui/components/u-icon/u-icon",
+    "u-loading-page": "/uni_modules/uview-ui/components/u-loading-page/u-loading-page",
+    "u-modal": "/uni_modules/uview-ui/components/u-modal/u-modal"
+  }
+}
