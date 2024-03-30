@@ -1,0 +1,84 @@
+<template>
+	<view class="gui-bg-white top-radis" :style="{width:'750rpx', height:height+'rpx'}">
+		<text class="gui-action-sheet-title gui-block-text gui-border-b">{{title}}</text>
+		
+		<view class="gui-card-list gui-flex gui-rows gui-wrap gui-justify-content-start ddw-machine-card">
+			<view v-for="(item,index) in items" class="gui-card-item" :key="item.id" @tap.stop="selected(item)" :data-index="item.id" hover-class="gui-tap">
+				<view>
+					<gui-image borderRadius="20rpx" :width="180" :height="270" :src="utils.formatImg(item.previewImg)"></gui-image>
+				</view>
+				<view style="margin-top:5rpx" class="gui-flex gui-rows gui-space-between">
+					<text class="gui-block-text gui-text-small gui-color-gray gui-text-center">{{item.name}}</text>
+					<text v-if="item.player == null" class="gui-block-text gui-text-small gui-text-center" style="color:green">空闲</text>
+					<text v-else-if="item.player && item.subscribers.length == 0" class="gui-block-text gui-text-small gui-text-center" style="color:red">游戏中</text>
+					<text v-else class="gui-block-text gui-text-small gui-text-center" style="color:red">{{item.subscribers.length}}人排队中</text>
+				</view>
+			</view>
+		</view>
+	</view>
+</template>
+
+<script>
+	import $utils from "@/common/utils";
+	export default {
+		data() {
+			return {
+				utils:$utils,
+				title:'',
+				items:[],
+				height:0
+			}
+		},
+		created() {
+			
+		},
+		destroyed() {
+			this.clear();
+		},
+		onHide() {
+		},
+		onUnload() {
+		},
+		onLoad() {
+			//子窗体监听数据
+			uni.$off('dollMachineList');
+			uni.$on('dollMachineList', (data) => {
+				this.title = data.selectDollName;
+				this.items = data.machineList;
+				
+				let subNVue = uni.getCurrentSubNVue();
+				
+				let systemInfo = uni.getSystemInfoSync()
+				let pxToRpxScale = 750 / systemInfo.windowWidth;
+				this.height = (360 * (parseInt((this.items.length - 1) / 3) + 1))+150;
+				
+				subNVue.setStyle({
+					"width":"100%",
+					"bottom":"0px",
+				    "height":this.height/pxToRpxScale+'px'
+				})
+				subNVue.show('slide-in-bottom', 350); 
+			})
+		},
+		methods: {
+			hide(){
+				let subNvue = uni.getCurrentSubNVue();
+				subNvue.hide('slide-out-bottom', 350);
+				this.clear();
+			},
+			clear(){
+			},
+			selected:function (item) {
+				uni.$emit('selected', item);
+				this.hide();
+			}
+		}
+	}
+</script>
+
+<style scoped>
+.gui-action-sheet-title{text-align:center; font-size:26rpx; line-height:100rpx; height:100rpx; font-weight:bold;color:#2B2E3D}
+.gui-card-item{width:180rpx; margin-left: 40rpx;}
+.ddw-machine-card{margin-left: 25rpx;margin-right: 65rpx;margin-top: 20rpx;}
+.top-radis{border-top-left-radius: 30rpx;border-top-right-radius: 30rpx;}
+</style>

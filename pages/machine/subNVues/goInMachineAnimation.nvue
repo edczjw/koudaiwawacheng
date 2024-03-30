@@ -1,0 +1,116 @@
+<template>
+	<view @click="onEvents">
+		<view class="flex-1 align-center">
+			<view ref="dollImg" class="align-center" style="top:300rpx;opacity: 0;">
+				<image class="rounded-lg m-1" :src="utils.formatImg(doll.thumbnail)"
+					style="width: 200rpx;height: 200rpx;" mode=""></image>
+			</view>
+			<view ref="dollName" class="flex-1 align-center justify-between" style="top:600rpx;width: 500rpx;height: 500rpx;opacity: 0;">
+				<image src="@/static/imgs/goInGameDollNameBg.png"
+					style="position: absolute;width: 500rpx;height: 500rpx;" mode="widthFix"></image>
+				<text class="" style="text-align: center;font-weight: bold;font-size:18;z-index:999;top:220rpx;color: #FFFFFF;width:400rpx;text-overflow:ellipsis;lines: 1;">{{doll.name}}</text>
+			</view>
+		</view>
+	</view>
+</template>
+
+<script>
+	import $utils from "@/common/utils";
+	export default {
+		data() {
+			return {
+				utils:$utils,
+				animation: null,
+				animationData: {},
+				doll: {
+					id: 0,
+					name: '',
+					thumbnail: '',
+					detailImgs: '',
+					coin: 0,
+					imgs: []
+				},
+				duration: 500
+			}
+		},
+		onLoad() {
+			uni.$off('goInMachineAnimation');
+			uni.$on('goInMachineAnimation', (data) => {
+				this.doll = data;
+				let subNVue = uni.getCurrentSubNVue();
+				subNVue.show('fade-in', 0, () => {
+					this.start();
+				});
+
+			})
+		},
+		onShow: function() {},
+		destroyed() {
+			
+		},
+		onBackPress(){
+			console.log("--------------------------------onBackPress-------------------------------------")
+		},
+		methods: {
+			onEvents() {
+			
+			},
+			start() {
+				const animation = weex.requireModule('animation'); 
+				animation.transition(this.$refs.dollImg, {  
+					styles: {
+						opacity:1,
+						transform: 'translateY(130rpx)'  
+					},  
+					duration: 600,  
+					timingFunction: 'ease',  
+					delay: 100  
+				}, () => {
+					setTimeout(()=>{
+						animation.transition(this.$refs.dollImg, {
+							styles: {
+								opacity:0,
+								transform: 'translateY(0)'  
+							},  
+							duration: 400,  
+							timingFunction: 'ease',  
+							delay: 0  
+						}, () => {
+							
+						})  
+						
+					},100);
+				}) 
+				
+				animation.transition(this.$refs.dollName, {
+					styles: {
+						opacity:1,
+						transform: 'translateY(-110rpx)'  
+					},  
+					duration: 600,  
+					timingFunction: 'ease',  
+					delay: 100  
+				}, () => {
+					setTimeout(()=>{
+						animation.transition(this.$refs.dollName, {
+							styles: {
+								opacity:0,
+								transform: 'translateY(0)'  
+							},  
+							duration: 400,  
+							timingFunction: 'ease',  
+							delay: 0  
+						}, () => {
+							let subNVue = uni.getCurrentSubNVue();
+							subNVue.hide('fade-out',500);
+						})  
+					},100);
+				}) 
+			}
+		}
+	}
+</script>
+
+<style>
+
+</style>

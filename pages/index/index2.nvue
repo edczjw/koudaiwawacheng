@@ -1,0 +1,325 @@
+<!-- 滑动切换选项卡+吸顶演示（nvue） -->
+<template>
+	<!-- refresher-only为true代表只使用下拉刷新功能 -->
+	<!-- hide-nvue-bottom-tag必须设置为true，因为在安卓设备中，插入的swiper cell下面，不能有其他的view -->
+	<!-- @onRefresh代表监听下拉刷新事件 -->
+	<z-paging ref="paging" nvue-list-id="z-paging-nlist" :show-scrollbar="false" :safe-area-inset-bottom="true" refresher-only hide-nvue-bottom-tag @onRefresh="onRefresh">
+		<!-- 将不需要参与滚动的部分，放在slot="top"的view中，如果只有一个标签，可以直接在此标签上写slot="top"，将自定义的导航栏放到里面即可 -->
+		<view slot="top">
+			<u-navbar @rightClick="navigateTo('/pages/money/recharge')">
+				<view
+					class="u-nav-slot"
+					slot="left">
+					<image class="logo" src="../../static/imgs/logo.png"></image>
+				</view>
+				<view
+					class="u-nav-slot" 
+					slot="right" style="right: -20rpx;">
+						<view type="default" size="mini" class="gui-button">
+							<image class="jinbi-img" src="../../static/imgs/jinbi.png"></image>
+							<text class="jinbi-text">{{user?user.coin:0}}</text>
+						</view>
+				</view>
+			</u-navbar>
+		</view>
+		
+		<!-- 自定义下拉刷新view(如果use-custom-refresher为true且不设置下面的slot="refresher"，此时不用获取refresherStatus，会自动使用z-paging自带的下拉刷新view) -->
+		<custom-refresher slot="refresher" slot-scope="{refresherStatus}" :status="refresherStatus"></custom-refresher>
+		<!-- 这个cell是吸顶view上方跟随列表滚动的view(header) -->
+		<cell>
+			<view ref="header" class="gui-margin">
+				<view class="gui-margin-top">
+					<!-- 轮播图 -->
+					<ddw-swiper :swiperItems="carouselList" :spacing="0" :padding="0" :borderRadius="20"
+					:width="690" :height="350" :indicatorActiveWidth="38"></ddw-swiper>
+				</view>
+				
+				<view class="gui-margin-top gui-padding">
+					<gui-speaker 
+					:items="speakerMsgs">
+						<text slot="icon" class="gui-block-text gui-icons demo-icon gui-color-gray">&#xe656;</text>
+					</gui-speaker>
+				</view>
+				
+				<!-- 图标导航 -->
+				<view class="gui-grids gui-flex gui-rows gui-wrap gui-margin-top">
+					<view class="gui-grids-items gui-flex gui-columns gui-align-items-center cate-grids" @tap="navigateTo('/pages/money/recharge')">
+						<image class="gui-grids-icon-img"
+						src="/static/imgs/cz.png"></image>
+						<text class="gui-grids-text gui-icons gui-primary-color">金币充值</text>
+					</view>
+					<view class="gui-grids-items gui-flex gui-columns gui-align-items-center cate-grids" @tap="switchTab('/pages/product/list')">
+						<image class="gui-grids-icon-img"
+						src="/static/imgs/sc.png"></image>
+						<text class="gui-grids-text gui-icons gui-primary-color">积分商城</text>
+					</view>
+					<view class="gui-grids-items gui-flex gui-columns gui-align-items-center cate-grids" @tap="navigateTo('/pages/demo2/demo2')">
+						<image class="gui-grids-icon-img" 
+						src="/static/imgs/yq.png"></image>
+						<text class="gui-grids-text gui-icons gui-primary-color">邀请有礼</text>
+					</view>
+				</view>
+				
+				<!-- 广告轮播 -->
+				<view class="gui-margin-top">
+					<!-- 轮播图 -->
+					<ddw-swiper :swiperItems="adList" :spacing="0" :padding="0" :borderRadius="20"
+					:width="690" :height="210" :indicatorActiveWidth="38"></ddw-swiper>
+				</view>
+				
+				<!-- <text style="font-size: 40rpx;font-weight: 700;color: white;">这是一个banner</text>
+				<text style="font-size: 24rpx;margin-top: 5rpx;color: white;">下方tab滚动时可吸附在顶部</text> -->
+			</view>
+		</cell>
+		<!-- 这个cell包含了吸顶view和主体列表，其高度必须等于页面可见高度 -->
+		<cell>
+			<view :style="'height:' + pageHeight + 'px'">
+				<!-- 吸顶view -->
+				<!-- <tabs-view @change="tabsChange" :current="current" :items="categoriesTabs"></tabs-view> -->
+				<view class="gui-bg-gray category-nav">
+					<gui-switch-navigation :items="categoriesTabs" @change="tabsChange" :currentIndex="current" textAlign="center" activeDirection="center" :size="120" :margin="20" color="gray"
+					activeLineBg="linear-gradient(to right, #fc6a6a, #fc6a6a)" activeColor="#fc6a6a"></gui-switch-navigation>
+				</view>
+				<!-- swiper -->
+				<swiper class="swiper" :current="current" @transition="transition" @animationfinish="animationfinish"
+					@change="onswiperchange">
+					<swiper-item class="swiper-item" v-for="(item, index) in categoriesTabs" :key="index">
+						<doll-swiper-item ref="swiperItem" :tabIndex="index" :categoryId="item.id" :currentIndex="current" @taped="navToMachinePage">
+						</doll-swiper-item>
+					</swiper-item>
+				</swiper>
+			</view>
+		</cell>
+	</z-paging>
+</template>
+
+<script>
+	import {mapState,mapMutations} from 'vuex';
+	import $utils from "@/common/utils";
+	// #ifdef APP-NVUE
+	const dom = weex.requireModule('dom')
+	// #endif
+	
+	import dollSwiperItem from './doll-swiper-item.nvue';
+	export default {
+		components: {
+		  dollSwiperItem
+		},
+		data() {
+			return {
+				categoriesTabs: [{
+					id: 0,
+					name: '全部'
+				}],
+				// 页面高度
+				pageHeight: 0,
+				// header高度
+				headerHeight: 0,
+				current: 0, // tabs组件的current值，表示当前活动的tab选项
+				utils: $utils,
+				swiperCurrent: 0,
+				swiperLength: 0,
+				carouselList: [],
+				adList:[],
+				dollList: [],
+				selectDollName: '',
+				machineList: [],
+				speakerMsgs : []
+			}
+		},
+		onLoad() {
+			this.initBanner("init");
+			this.getCategories();
+			// 获取页面可见高度，除去header以外的高度必须等于页面可见高度！
+			console.log(uni.getSystemInfoSync().screenWidth)
+			this.pageHeight = uni.getSystemInfoSync().windowHeight;
+			console.log(this.pageHeight)
+			this.$nextTick(() => {
+				// 获取header的高度
+				dom.getComponentRect(this.$refs.header, option => {
+					if (option && option.result) {
+						this.headerHeight = option.size.height;
+					}
+				})
+			})
+			
+			console.log(this.pageHeight)
+		},
+		computed: {
+			...mapState({user:state=>state.user})
+		},
+		watch: {
+			//当current或者headerHeight改变的时候，调用子组件的设置嵌套list父容器支持swiper-list吸顶滚动效果的方法
+			current() {
+				this.setListSpecialEffects();
+			},
+			//当current或者headerHeight改变的时候，调用子组件的设置嵌套list父容器支持swiper-list吸顶滚动效果的方法
+			headerHeight() {
+				this.setListSpecialEffects();
+			}
+		},
+		methods: {
+			...mapMutations(['setCurrentMachine']),
+			selected : function(item){
+				let self = this;
+				// this.$refs.guipageloading.open();
+				this.$refs.guiactionsheet.close();
+				let data = {machineId: item.id,video:item.video}
+				this.setCurrentMachine(data)
+				
+				setTimeout(function() {
+					// self.$refs.guipageloading.close();
+					uni.navigateTo({
+						url: `/pages/machine/game`,
+						animationType: 'pop-in',
+						animationDuration: 600
+					})
+				}, 200);
+			},
+			open:function(){
+				uni.$emit('dollMachineList',{selectDollName: this.selectDollName,
+				machineList: this.machineList,})
+				
+			},
+			//app取消更新
+			updateClose:function() {
+				this.is_update_app = false;
+			},
+			onRefresh() {
+				this.initBanner("reload");
+				//触发了下拉刷新，通知当前tabIndex对应子组件的下拉刷新
+				this.$refs.swiperItem[this.current].reload(() => {
+					this.$refs.paging.complete();
+				});
+			},
+			// tabs通知swiper切换
+			tabsChange(index) {
+				this.current = index;
+			},
+			// swiper-item左右移动，通知tabs的滑块跟随移动
+			transition(e) {
+				let dx = e.detail.dx;
+			},
+			onswiperchange(e) {
+				// #ifndef APP-PLUS || H5 || MP-WEIXIN || MP-QQ
+				let index = e.target.current || e.detail.current;
+				this.tabsChange(index);
+				// #endif
+			},
+			animationfinish(e) {
+				let current = e.detail.current;
+				this.current = current;
+			},
+			//设置子组件嵌套list父容器支持swiper-list吸顶滚动效果的方法
+			setListSpecialEffects() {
+				this.$nextTick(() => {
+					this.$refs.swiperItem[this.current].setSpecialEffects(this.headerHeight);
+				})
+			},
+			getCategories() {
+				uni.http.get(
+					'doll/categories'
+				).then(res=>{
+					this.categoriesTabs = res.data;
+					this.categoriesTabs.splice(0, 0, {
+						id: 0,
+						name: '全部'
+					})
+				}).catch(err=>{
+				});
+			},
+			navigateTo(url){
+			    if(!this.user){
+			        url = '/pages/public/login';
+			    }
+				uni.navigateTo({
+				    url: url
+				});
+			},
+			switchTab(url){
+				uni.switchTab({
+				    url: url
+				});
+			},
+			initBanner(type) {
+				uni.http.get('banner?dataVersion=0').then(res=>{
+					if(res.code == 200){
+						var isPlayd = uni.getStorageSync('playStartBanner');
+						if(isPlayd == '' && res.data.startPage && res.data.startPage.length > 0){ 
+							uni.redirectTo({
+								url:'../startBanner/startBanner?imgs=' + encodeURIComponent(JSON.stringify(res.data.startPage))
+							});
+						}
+						
+						if(res.data.indexCarousel && res.data.indexCarousel.length > 0){
+							this.carouselList = res.data.indexCarousel;
+							this.swiperLength = this.carouselList.length;
+						}
+						if(res.data.indexAd && res.data.indexAd.length > 0){
+							this.adList = res.data.indexAd;
+						}
+						
+						if(res.data.speakerMsgs && res.data.speakerMsgs.length > 0){
+							this.speakerMsgs = res.data.speakerMsgs;
+						}
+						
+						if(type == "init" && res.data.indexPopImg && res.data.indexPopImg.length > 0){
+							setTimeout(()=>{
+								uni.$emit('popImgLink', res.data.indexPopImg);
+							},500)
+						}
+					}
+				})
+			},
+			//机器列表
+			navToMachinePage(item) {
+			    if(!this.user){
+			        uni.navigateTo({
+			        	url: '/pages/public/login'
+			        })
+			        return
+			    }
+				let id = item.id;
+				let machineIds = item.machineIds;
+				if(!machineIds || machineIds.length == 0){
+					uni.showToast({title:"暂无机器可用", icon:"none", mask:true});
+					return;
+				}else if(machineIds.length == 1){
+					let data = {machineId: machineIds[0],video:item.video}
+					this.setCurrentMachine(data)
+					
+					uni.navigateTo({
+						url: `/pages/machine/game`,
+						animationType: 'pop-in',
+						animationDuration: 600
+					})
+				}else {
+					this.selectDollName = item.name;
+					// uni.showLoading();
+					uni.http.get(
+						'machine/list/' + item.id,
+					).then(res=>{
+						this.machineList = res.data.machineList || [];
+						
+						this.open();
+					})
+					// this.$refs.guiactionsheet.open();
+					/* uni.navigateTo({
+						url: `/pages/machine/machine?doll=` + encodeURIComponent(JSON.stringify(item))
+					}) */
+				}
+			},
+		}
+	}
+</script>
+
+<style>
+	.logo{height: 30px;width: 90px;}
+	.jinbi-img{height: 55rpx;width: 165rpx;}
+	.jinbi-text{position: absolute;left: 55rpx;font-size: 26rpx;text-align: center; line-height: 55rpx; width: 90rpx;color: #4a4a4a;font-weight: bold;}
+	.category-nav{width:750rpx; padding:20rpx;}
+	.swiper,
+	.swiper-item,
+	.swiper-item-content {flex: 1;}
+	.cate-grids{width:230rpx;}
+</style>

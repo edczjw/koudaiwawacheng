@@ -1,0 +1,47 @@
+<template>
+	<view class="gui-padding">
+		<view style="margin-top:80rpx;">
+			<text class="gui-h6 gui-color-gray gui-bold">组件演示</text>
+		</view>
+		
+		<!-- 右侧菜单组件 -->
+		<gui-right-menus>
+			<!-- 扩展按钮 -->
+			<view slot="menus-more">
+				<view hover-class="gui-tap" 
+				class="menu-items gui-bg-blue gui-flex gui-columns gui-justify-content-center">
+					<text class="menu-icon gui-block-text gui-text-center gui-icons gui-color-white">&#xe626;</text>
+					<text class="menu-text gui-block-text gui-text-center gui-color-white">文本</text>
+				</view>
+				<view hover-class="gui-tap" 
+				class="menu-items gui-bg-blue gui-flex gui-columns gui-justify-content-center">
+					<text class="menu-icon gui-block-text gui-text-center gui-icons gui-color-white">&#xe61f;</text>
+					<text class="menu-text gui-block-text gui-text-center gui-color-white">文本</text>
+				</view>
+				<view hover-class="gui-tap" 
+				class="menu-items gui-bg-blue gui-flex gui-columns gui-justify-content-center">
+					<text class="menu-icon gui-block-text gui-text-center gui-icons gui-color-white">&#xe6b8;</text>
+					<text class="menu-text gui-block-text gui-text-center gui-color-white">文本</text>
+				</view>
+			</view>
+			<!-- 核心按钮 -->
+			<view slot="menus-primary" 
+			class="menu-items gui-bg-gray gui-flex gui-columns gui-justify-content-center">
+				<text class="menu-icon gui-block-text gui-text-center gui-icons">&#xe614;</text>
+				<text class="menu-text gui-block-text gui-text-center">功能</text>
+			</view>
+		</gui-right-menus>
+	</view>
+</template>
+<script>
+export default {
+	data() {
+		return {}
+	}
+}
+</script>
+<style>
+.menu-items{width:100rpx; height:100rpx; margin:20rpx 0; border-radius:100rpx;}
+.menu-icon{width:100rpx; line-height:40rpx; font-size:36rpx;}
+.menu-text{width:100rpx; line-height:30rpx; font-size:22rpx;}
+</style>

@@ -1,0 +1,146 @@
+<template>
+	<view @click="onEvents">
+		<view v-if="showType==1" class="flex-1 align-center justify-center">
+			<image style="width: 650rpx;height: 780rpx;" src="@/static/imgs/game_catch_success.png" mode="width">
+			<view style="position: relative; width: 80rpx;height: 80rpx;right: -280rpx;top: -780rpx;" @click="cancalPlay">
+				<image src="@/static/imgs/app_update_close.png" style="width: 80rpx;height: 80rpx;" mode=""></image>
+			</view>
+			<view class="align-center justify-center" style="position:absolute;left:225rpx;">
+				<image src="@/static/imgs/game_success_wawa_bg.png" style="position: absolute;left: 0rpx;top: 0rpx;width: 300rpx;height: 300rpx;" mode="widthFix"></image>
+				<image class="rounded-lg m-1" :src="utils.formatImg(doll.thumbnail)" style="width: 270rpx;height: 270rpx;" mode=""></image>
+			</view>
+			<view style="height: 60rpx;bottom: 180rpx;" class="flex align-center">
+				<view class="flex align-center justify-center py-1 px-2 rounded bg-warning" @click="reGame">
+					<text class="font font-weight-bold text-white result-text">{{text}}</text>
+					<text class="font font-weight-bold text-white result-text">({{countdownTime}}s)</text>
+				</view>
+				
+				<view class="flex align-center justify-center py-1 px-2 rounded bg-success" style="margin-left: 10rpx;" @click="openShare">
+					<text class="font font-weight-bold text-white result-text">分享领币</text>
+				</view>
+			</view>
+		</view>
+		<view v-if="showType==2" class="flex-1 align-center justify-center">
+			<image style="width: 650rpx;height: 585rpx;" src="@/static/imgs/game_catch_fail.png" mode="width">
+			<view style="position: relative; width: 80rpx;height: 80rpx;right: -280rpx;top: -585rpx;" @click="cancalPlay">
+				<image src="@/static/imgs/app_update_close.png" style="width: 80rpx;height: 80rpx;" mode=""></image>
+			</view>
+			<view style="height: 60rpx;bottom: 190rpx;" class="flex align-center">
+				<view class="flex align-center justify-center py-1 px-2 rounded bg-warning" :style="{'background-color': text == '金币不足,霸机充值' ? '#ff700a' : '#ffc107'}" @click="reGame">
+					<text class="font font-weight-bold text-white result-text">{{text}}</text>
+					<text class="font font-weight-bold text-white result-text">({{countdownTime}}s)</text>
+				</view>
+			</view>
+		</view>
+		<view v-if="showType==3" class="flex-1 align-center justify-center">
+			<image style="width: 650rpx;height: 585rpx;" src="@/static/imgs/daoninle.png" mode="width">
+			<view style="position: relative; width: 80rpx;height: 80rpx;right: -280rpx;top: -585rpx;" @click="cancalPlay">
+				<image src="@/static/imgs/app_update_close.png" style="width: 80rpx;height: 80rpx;" mode=""></image>
+			</view>
+			<view style="height: 80rpx;bottom: 335rpx;left: 130rpx" class="flex align-center">
+				<view class="flex align-center justify-center py-1 px-2 rounded ">
+					<text class="font font-weight-bold text-white" style="font-size: 48rpx;">{{countdownTime}}s</text>
+				</view>
+			</view>
+			<view style="position: relative; width: 400rpx;height: 150rpx;top: -440rpx;" @click="reGame()">
+				
+			</view>
+		</view>
+	</view>
+</template>
+
+<script>
+	import $utils from "@/common/utils";
+	export default {
+		data() {
+			return {
+				utils:$utils,
+				doll: {
+					id: 0,
+					name: '',
+					thumbnail: '',
+					detailImgs: '',
+					coin: 0,
+					imgs: []
+				},
+				countdownTime:0,
+				interval:null,
+				text: "",
+				showType:3 //1:抓到娃娃；2:未抓成功；3:预约成功
+			}
+		},
+		created() {
+			
+		},
+		destroyed() {
+			this.clear();
+		},
+		onHide() {
+			this.clear();
+		},
+		onUnload() {
+			this.clear();
+		},
+		onLoad() {
+			//子窗体监听数据
+			uni.$off('getdollresult');
+			uni.$on('getdollresult', (data) => {  
+				this.doll = data.doll;
+				this.countdownTime = data.countdownTime;
+				this.showType = data.showType;
+				this.text = data.text;
+				let subNVue = uni.getCurrentSubNVue();
+				subNVue.show('slide-in-bottom', 100, ()=>{
+					if(this.interval){
+						clearInterval(this.interval);
+					}
+					this.interval = setInterval(()=>{
+						this.countdownTime--
+						if(this.countdownTime == 0){
+							this.clear();
+							this.hide();
+						}
+					},1000);
+				});
+				
+			})
+		},
+		methods: {
+			onEvents() {
+			
+			},
+			reGame(){
+				uni.$emit('againplay');
+				this.hide();
+			},
+			openShare(){
+				uni.$emit('openShare');
+				this.hide();
+			},
+			cancalPlay(){
+				uni.$emit('cancalplay');
+				this.hide();
+			},
+			remove (val) {
+				val == 1 ? this.mask = false : this.mask = true;
+			},
+			hide(){
+				let subNvue = uni.getCurrentSubNVue();
+				subNvue.hide('slide-out-top', 200);
+				this.clear();
+			},
+			clear(){
+				if(this.interval){
+					clearInterval(this.interval);
+					this.interval = null;
+				}
+			}
+		}
+	}
+</script>
+
+<style>
+.result-text{
+	font-size: 30rpx;
+}
+</style>

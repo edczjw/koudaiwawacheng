@@ -1,0 +1,498 @@
+{
+	"pages": [
+
+		/* {
+			"path": "pages/index/index",
+			"style": {
+				// #ifdef MP 
+				// "navigationStyle": "custom",
+				// #endif 
+				"navigationBarTitleText": "娃娃机",
+				"app-plus": {
+					"titleNView": {
+						"type": "transparent"
+					}
+				}
+			}
+		}, */
+		{
+			"path": "pages/index/index",
+			"style": {
+		        "enablePullDownRefresh": true,
+				"navigationBarTitleText": "口袋娃娃城",
+				"navigationStyle": "custom",
+				"app-plus":{
+					"subNVues":[{
+						"id":"popup",
+						"path":"pages/index/subNVues/signeveryday",
+						"type":"popup",
+						"style":{
+							"position":"absolute",
+							"mask":"rgba(0,0,0,0)",
+							"margin":"auto",
+							"width":"100%",
+							"height":"100%",
+							"background":"transparent"
+						}
+					},{
+						"id":"popImgLink",
+						"path":"pages/index/subNVues/popImgLink",
+						"type":"popup",
+						"style":{
+							"popGesture":"none",
+							"margin":"auto",
+							"width":"100%",
+							"height":"100%",
+							"background":"transparent"
+						}
+					},{
+						"id":"dollMachineList",
+						"path":"pages/index/subNVues/dollMachineList",
+						"type":"popup",
+						"style":{
+							"popGesture":"none",
+							"margin":"auto",
+							"width":"100%",
+							"bottom":"0px",
+							"background":"transparent"
+						}
+					}],
+		            "pullToRefresh":{
+		                "style": "circle",
+		                "offset": "75px"
+		            }
+				}
+			}
+		},
+		{
+		    "path" : "pages/index/index2",
+		    "style" :                                                                                    
+		    {
+				"enablePullDownRefresh": false,
+		        "navigationStyle": "custom",
+				"app-plus":{
+					/* "subNVues":[{
+						"id":"popup",
+						"path":"pages/index/subNVues/signeveryday",
+						"type":"popup",
+						"style":{
+							"position":"absolute",
+							"mask":"rgba(0,0,0,0)",
+							"margin":"auto",
+							"width":"100%",
+							"height":"100%",
+							"background":"transparent"
+						}
+					},{
+						"id":"popImgLink",
+						"path":"pages/index/subNVues/popImgLink",
+						"type":"popup",
+						"style":{
+							"popGesture":"none",
+							"margin":"auto",
+							"width":"100%",
+							"height":"100%",
+							"background":"transparent"
+						}
+					},{
+						"id":"dollMachineList",
+						"path":"pages/index/subNVues/dollMachineList",
+						"type":"popup",
+						"style":{
+							"popGesture":"none",
+							"margin":"auto",
+							"width":"100%",
+							"bottom":"0px",
+							"background":"transparent"
+						}
+					}] */
+				}
+		    }
+		    
+		},
+		{
+			"path": "pages/machine/game",
+			"style": {
+				"navigationBarTitleText": "口袋娃娃城",
+				"navigationStyle" : "custom",
+				"app-plus":{
+					"subNVues":[{
+						"id":"getdollresult",
+						"path":"pages/machine/subNVues/getdollresult",
+						"type":"popup",
+						"style":{
+							"popGesture":"none",
+							"margin":"auto",
+							"width":"100%",
+							"height":"100%",
+							"background":"transparent"
+						}
+					},{
+						"id":"goInMachineAnimation",
+						"path":"pages/machine/subNVues/goInMachineAnimation",
+						"type":"popup",
+						"style":{
+							"popGesture":"none",
+							"margin":"auto",
+							"width":"100%",
+							"height":"100%",
+							"background":"transparent",
+							"mask": "rgba(0,0,0,0)"
+						}
+					}]
+				}
+			}
+		}, {
+			"path": "pages/set/set",
+			"style": {
+				"navigationBarTitleText": "设置"
+			}
+		}, {
+			"path": "pages/public/webview",
+			"style": {
+				"navigationBarTitleText": ""
+			}
+		},{
+			"path": "pages/public/article",
+			"style": {
+				"navigationBarTitleText": ""
+			}
+		},{
+			"path": "pages/userinfo/userinfo",
+			"style": {
+				"navigationBarTitleText": "修改资料"
+			}
+		}, {
+			"path": "pages/cart/cart",
+			"style": {
+				"navigationBarTitleText": "购物车"
+			}
+		}, {
+			"path": "pages/public/login",
+			"style": {
+				"navigationBarTitleText": "",
+				"navigationStyle": "custom",
+				"app-plus": {
+					"titleNView": false,
+					"animationType": "slide-in-bottom"
+				}
+			}
+		}, {
+			"path": "pages/public/phonelogin",
+			"style": {
+				"navigationBarTitleText": "",
+				"navigationStyle": "custom",
+				"app-plus": {
+					"titleNView": false,
+					"animationType": "slide-in-bottom"
+				}
+			}
+		},{
+            "path" : "pages/user/user",
+            "style" : {
+				"enablePullDownRefresh": false,
+				"navigationBarTitleText": "个人中心"
+			}
+        },  {
+			"path": "pages/order/order",
+			"style": {
+				"navigationBarTitleText": "我的订单",
+				"app-plus": {
+					"bounce": "none"
+				}
+			}
+		}, {
+			"path": "pages/money/money",
+			"style": {}
+		}, {
+			"path": "pages/money/recharge",
+			"style": {
+				"navigationBarTitleText": "充值",
+				"app-plus": {
+					"titleNView": {
+						"buttons": [
+							{
+								"width": "180rpx",
+								"text": "金币明细",
+								"fontSize": "14",
+								"color": "#535458",
+								"background": "rgba(0,0,0,0)"
+							}
+						]
+					}
+				}
+			}
+		}, {
+			"path": "pages/money/recharge2",
+			"style": {
+				"navigationBarTitleText": "充值"
+			}
+		}, {
+			"path": "pages/user/record",
+			"style": {
+				"navigationBarTitleText": "金币明细"
+			}
+		}, {
+			"path": "pages/user/extendList",
+			"style": {
+				"navigationBarTitleText": "我的推广"
+			}
+		}, {
+			"path": "pages/user/commissionList",
+			"style": {
+				"navigationBarTitleText": "佣金明细"
+			}
+		}, {
+			"path": "pages/user/withdraw",
+			"style": {
+				"navigationBarTitleText": "提现"
+			}
+		}, {
+			"path": "pages/user/withdrawRecord",
+			"style": {
+				"navigationBarTitleText": "提现记录"
+			}
+		}, {
+			"path": "pages/user/distribution",
+			"style": {
+				"navigationBarTitleText": "推广中心"
+			}
+		}, {
+			"path": "pages/public/exchangePwd",
+			"style": {
+				"navigationBarTitleText": "口令红包"
+			}
+		}, {
+			"path": "pages/user/myDoll",
+			"style": {
+				"navigationBarTitleText": "我的背包",
+				"enablePullDownRefresh": true,
+				"app-plus":{
+					"pullToRefresh":{
+					    "style": "circle",
+					    "offset": "75px"
+					}
+				}
+			}
+		}, {
+			"path": "pages/user/myCollect",
+			"style": {
+				"navigationBarTitleText": "我的收藏"
+			}
+		},{
+			"path": "pages/user/recentCatch",
+			"style": {
+				"navigationBarTitleText": "最近夹中的娃娃"
+			}
+		}, {
+			"path": "pages/user/dollDetail",
+			"style": {
+				"navigationStyle" : "custom",
+				"navigationBarTitleText": "娃娃详情"
+			}
+		}, {
+			"path": "pages/user/bulk",
+			"style": {
+				"navigationBarTitleText": "批量操作"
+			}
+		}, {
+			"path": "pages/complaint/complaint",
+			"style": {
+				"navigationBarTitleText": "我要申诉",
+				"app-plus": {
+					"titleNView": {
+						"buttons": [
+							{
+								"width": "180rpx",
+								"text": "游戏记录",
+								"fontSize": "16",
+								"color": "#303133",
+								"background": "rgba(0,0,0,0)"
+							}
+						]
+					}
+				}
+			}
+		}, {
+			"path": "pages/complaint/gameRecord",
+			"style": {
+				"navigationBarTitleText": "抓取记录"
+			}
+		}, {
+			"path": "pages/address/address",
+			"style": {
+				"navigationBarTitleText": "收货地址"
+			}
+		}, {
+			"path": "pages/address/addressManage",
+			"style": {
+				"navigationBarTitleText": ""
+			}
+		}, {
+			"path": "pages/money/pay",
+            "style": {
+            	"navigationBarTitleText": "支付",
+            	"navigationStyle": "custom",
+            	"app-plus": {
+            		"titleNView": false
+            	}
+            }
+		},
+		{
+			"path": "pages/money/paySuccess",
+			"style": {
+				"navigationBarTitleText": "支付成功"
+			}
+		}
+	    ,{
+            "path" : "pages/notice/notice",
+            "style" : {
+				"navigationBarTitleText": "通知"
+			}
+        }
+        ,{
+            "path" : "pages/category/category",
+            "style" : {
+				"navigationBarTitleText": "分类",
+				"app-plus": {
+					"bounce": "none"
+				}
+			}
+        }
+        ,{
+            "path" : "pages/product/list",
+            "style" : {
+				"enablePullDownRefresh": true,
+				"navigationBarTitleText": "积分商城",
+				"app-plus":{
+				    "pullToRefresh":{
+				        "style": "circle",
+				        "offset": "75px"
+				    }
+				}
+			}
+        }
+        ,{
+            "path" : "pages/user/rank",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "周榜",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/machine/machine",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "机器列表",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/product/detail",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "商品详情",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/user/invite",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "邀请好友",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/public/demo",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "演示",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/startBanner/startBanner",
+            "style" :                                                                                    
+			{
+				"navigationBarTitleText": "",
+				"navigationStyle" : "custom"
+			}
+            
+        }
+        ,{
+            "path" : "pages/user/agreement",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "隐私政策与服务协议",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+    ],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "",
+		"navigationBarBackgroundColor": "#FFFFFF",
+		"backgroundColor": "#f8f8f8",
+		"scrollIndicator":"none",
+		// #ifdef H5
+		"navigationStyle": "custom",
+		// #endif 
+		"app-plus":{
+			"scrollIndicator":"none"
+		}
+	},
+	"tabBar": {
+		"color": "#C0C4CC",
+		"selectedColor": "#fa436a",
+		"borderStyle": "black",
+		"fontSize": "12px",
+		"backgroundColor": "#ffffff",
+		"list": [{
+				"pagePath": "pages/index/index",
+				"iconPath": "static/imgs/tab-home.png",
+				"selectedIconPath": "static/imgs/tab-home-current.png",
+				"text": "首页"
+			},
+			/* {
+				"pagePath": "pages/index/index2",
+				"iconPath": "static/imgs/tab-home.png",
+				"selectedIconPath": "static/imgs/tab-home-current.png",
+				"text": "首页2"
+			}, */
+			{
+				"pagePath": "pages/user/myDoll",
+				"iconPath": "static/imgs/tab-beibao.png",
+				"selectedIconPath": "static/imgs/tab-beibao-current.png",
+				"text": "背包"
+			},
+			
+			{
+				"pagePath": "pages/product/list",
+				"iconPath": "static/imgs/tab-shop.png",
+				"selectedIconPath": "static/imgs/tab-shop-current.png",
+				"text": "商城"
+			},
+			{
+				"pagePath": "pages/user/user",
+				"iconPath": "static/imgs/tab-my.png",
+				"selectedIconPath": "static/imgs/tab-my-current.png",
+				"text": "我的"
+			}
+		]
+	},
+	"easycom": {
+		"autoscan": true,
+		"custom": {
+			"gui-(.*)": "@/GraceUI5/components/gui-$1.vue",
+			"ddw-(.*)": "@/GraceUI5/components/custom/ddw-$1.vue"	
+		}
+	}
+}

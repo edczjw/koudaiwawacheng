@@ -1,0 +1,96 @@
+<template>
+	<view @click="onEvents">
+		<view  class="flex-1 align-center justify-center">
+			<view @click="jump">
+				<image style="width: 450rpx;height: 600rpx;" :src="utils.formatImg(currentData.img)" mode="width">
+			</view>
+			<view style="position: relative; width: 80rpx;height: 80rpx;" class="mt-2" @click="hide">
+				<image src="@/static/imgs/app_update_close.png" style="width: 80rpx;height: 80rpx;" mode=""></image>
+			</view>
+		</view>
+		
+	</view>
+</template>
+
+<script>
+	import $utils from "@/common/utils";
+	export default {
+		data() {
+			return {
+				utils:$utils,
+				datas:[],
+				currentData:{}
+			}
+		},
+		created() {
+			
+		},
+		destroyed() {
+			this.clear();
+		},
+		onHide() {
+		},
+		onUnload() {
+		},
+		onLoad() {
+			//子窗体监听数据
+			uni.$off('popImgLink');
+			uni.$on('popImgLink', (data) => {
+				this.datas = data;
+				this.pop();
+			})
+		},
+		methods: {
+			onEvents() {
+			
+			},
+			pop(){
+				this.currentData = this.datas.shift();
+				let subNVue = uni.getCurrentSubNVue();
+				subNVue.show('zoom-fade-out', 350); 
+			},
+			hide(){
+				let subNvue = uni.getCurrentSubNVue();
+				subNvue.addEventListener("hide", ()=> {
+					if(this.datas.length > 0){
+						this.pop()
+					}
+				});
+				subNvue.hide('zoom-fade-in', 300);
+				this.clear();
+			},
+			jump(){
+				let jumpType = this.currentData.jumpType;
+				let jumpLink = this.currentData.jumpLink;
+				if(jumpType=='innerPage'){
+					uni.authJump({
+						url : jumpLink,
+						fail: (res)=> {
+							uni.switchTab({
+								url : jumpLink
+							})
+						}
+					})
+				}else if(jumpType=='innerWebview'){
+					uni.navigateTo({
+						url : "/pages/public/webview?url=" + encodeURIComponent(jumpLink),
+					})
+				}else if(jumpType=='outLink'){
+					plus.runtime.openURL(jumpLink, function(res) {});
+				}else if(jumpType == 'article'){
+					uni.navigateTo({
+						url : "/pages/public/article?id=" + jumpLink,
+					})
+				}
+			},
+			clear(){
+			}
+		}
+	}
+</script>
+
+<style>
+.result-text{
+	font-size: 30rpx;
+}
+</style>

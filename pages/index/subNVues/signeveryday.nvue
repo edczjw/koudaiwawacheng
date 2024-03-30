@@ -1,0 +1,58 @@
+<template>
+	<view class="" style="top: 450rpx;">
+		<view v-if="hadSignIn" class="flex-1 align-center">
+			<view class="">
+				<image src="../../../static/gif/getcoin.gif" style="width: 300rpx;height: 300rpx;" mode=""></image>
+			</view>
+		</view>
+		<view v-else class="flex-1 align-center">
+			<image style="width: 600rpx;height: 600rpx;border-radius: 50rpx;" src="@/static/imgs/rechargeBg.png" mode="width">
+			<view class="align-center mt-5" style="position: absolute;">
+				<text class="font-lg text-white font-weight-bold">签到奖励</text>
+			</view>
+			<view class="flex flex-wrap align-center justify-center" @click="signIn"
+				style="margin-top:180rpx;width: 580rpx;position: absolute;">
+				<view class="m-1 mt-2 rounded dayitem" v-for="n in 7" :style="'width:'+ (n<7?120:260) + 'rpx'">
+					<view class="align-center px-1 rounded-top" style="background-color:#ffaa7f;height: 40rpx;">
+						<text class="font text-white">第{{n}}天</text>
+					</view>
+					<view>
+						<text>1金币</text>
+						<image src="" mode="widthFix"></image>
+					</view>
+				</view>
+			</view>
+		</view>
+		
+	</view>
+</template>
+
+<script>
+	export default {
+		data() {
+			return {
+				hadSignIn:false,
+				signInData:null
+			}
+		},
+		onLoad() {
+			
+		},
+		mounted() {},
+		methods: {
+			signIn(){
+				
+				// this.hadSignIn = true;
+			}
+		}
+	}
+</script>
+
+<style>
+	.dayitem {
+		background-color: #ffffff;
+		height: 160rpx;
+		/* box-sizing: border-box; */
+		position: relative;
+	}
+</style>

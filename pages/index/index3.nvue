@@ -1,0 +1,262 @@
+<template>
+	<view>
+		<u-gap></u-gap>
+		<u-swiper style="padding-left: 20rpx;padding-right:20rpx;" :list="swiperList" height="150" radius="10"
+			keyName="img" :autoplay="false" indicator indicatorMode="line" circular @change="change" @click="click">
+		</u-swiper>
+		<u-gap></u-gap>
+		<!-- 分类 -->
+		<view style="width: 710rpx;height: 140rpx;background-color: #ffffff;left:20rpx;box-shadow:4px 4px 5px 3px #999"
+			class="mt-2 flex rounded-xlg align-center justify-center">
+			<!-- 实时在线观看用户情况 -->
+			<scroll-view scroll-x="true" style="width: 710rpx;" :scroll="false" :show-scrollbar="false"
+				class="flex-1 flex align-center justify-center">
+				<view class="p scroll-row-item align-center" style="width:240rpx" v-for="(item,index) in mainBtnList"
+					@tap="item.toPage?navigateTo(item.toPage):switchBottomTab(item.switchPage)">
+					<image :src="item.thumb" style="width: 80rpx;height: 80rpx;" class="rounded-circle"></image>
+					<text class="font-sm">{{item.name}}</text>
+				</view>
+			</scroll-view>
+		</view>
+		<u-gap></u-gap>
+		<view class="">
+			<u-sticky style="z-index:999;background-color: #ffffff;">
+				<u-tabs :list="categoriesTabs" @change="tabChange" @click="ontabtap" :current="tabIndex">
+				</u-tabs>
+			</u-sticky>
+
+			<swiper class="tab-box" ref="swiper1" :current="tabIndex" :duration="300" @change="onswiperchange"
+				@transition="onswiperscroll" @animationfinish="animationfinish" @onAnimationEnd="animationfinish"
+				:style="{height:swiperHeight}">
+				<swiper-item v-for="(citem,index) in categoriesTabs" :key="index">
+					<view class="swiper-item" :id="'content-wrap'+index">
+						<nlist type="waterfall" style="width: 750rpx;" :leftGap="10" :columnCount="2" :isRefresh="true"
+							:columnGap="0" ref="nlist">
+							<cell style="padding-top: 20rpx;" class="flex flex-wrap"
+								v-for="(ditem, index) in getDollsByCategorieId(citem.id)" :key="index">
+								<view class="flex flex-column rounded-xlg" style="background-color: #ffffff;width: 350rpx;"  @tap="navToMachinePage(ditem)">
+									<view class="rounded-xlg p-1" style="">
+										<image ref="dollThumb" class="rounded-xlg" style="width: 330rpx;" :src="utils.formatImg(ditem.thumbnail)"
+											mode="widthFix"></image>
+									</view>
+									<text class="title font ml-1">{{ditem.name}}</text>
+									<view class="price-box flex justify-between ml-1">
+										<!-- <gui-tags class="price" :text="ditem.coin + '币'" bgClass="jianbian-bg"
+											:size="26" :borderRadius="50"></gui-tags> -->
+										<!-- <u-tag shape="circle" plain size="medium"
+										icon="../../static/imgs/coin.png">
+											<text>金币</text>
+										</u-tag> -->
+										<u-button size="mini" shape="circle" icon="../../static/imgs/coin.png" :disabled="true" :text="ditem.coin + '币'"></u-button>
+										<gui-tags :text="(ditem.machineIds ? ditem.machineIds.length : 0) + '台'"
+											bgClass="gui-bg-gray" color="gray" :size="22"></gui-tags>
+									</view>
+								</view>
+							</cell>
+						</nlist>
+					</view>
+				</swiper-item>
+
+			</swiper>
+		</view>
+
+	</view>
+</template>
+
+<script>
+	import {
+		mapState
+	} from 'vuex';
+	import $utils from '@/common/utils.js'
+	export default {
+		data() {
+			return {
+				utils: $utils,
+				swiperList: [],
+				swiperHeight: '100rpx',
+				mainBtnList: [{
+						thumb: '/static/imgs/cz.png',
+						name: '金币充值',
+						toPage: '/pages/money/recharge'
+					},
+					{
+						thumb: '/static/imgs/sc.png',
+						name: '积分商城',
+						switchPage: '/pages/product/list'
+					},
+					{
+						thumb: '/static/imgs/yq.png',
+						name: '邀请有礼',
+						toPage: '/pages/user/invite'
+					}
+				],
+				categoriesTabs: [],
+				tabIndex: 0,
+				dollList: null
+			}
+		},
+		computed: {
+			...mapState({
+				user: state => state.user
+			})
+		},
+		onLoad() {
+			this.initBanner();
+			this.getdata();
+		},
+		methods: {
+			async initBanner() {
+				uni.http.get('banner?dataVersion=0').then(res => {
+					if (res.code == 200) {
+						var isPlayd = uni.getStorageSync('playStartBanner');
+						if (isPlayd == '' && res.data.startPage && res.data.startPage.length > 0) {
+							uni.redirectTo({
+								url: '../startBanner/startBanner?imgs=' + encodeURIComponent(JSON
+									.stringify(res.data.startPage))
+							});
+						}
+						if (res.data.indexCarousel && res.data.indexCarousel.length > 0) {
+							let swiperList = res.data.indexCarousel;
+							swiperList.forEach((item) => {
+								item.img = $utils.formatImg(item.img)
+								this.swiperList.push(item);
+							});
+							console.log(this.swiperList);
+
+						}
+						if (res.data.indexAd && res.data.indexAd.length > 0) {
+							this.adList = res.data.indexAd;
+						}
+					}
+				})
+			},
+			async getdata() {
+				// uni.showLoading();
+				uni.http.get(
+					'doll/list'
+				).then(res => {
+					console.log(res.data);
+					let dollList = res.data.dollList;
+					this.dollList = dollList || [];
+					this.categoriesTabs = res.data.categories;
+					this.categoriesTabs.splice(0, 0, {
+						id: 0,
+						name: '全部'
+					})
+					this.$nextTick(() => {
+						this.setSwiperHeight()
+					})
+				}).catch(err => {
+
+				});
+
+			},
+			getDollsByCategorieId(id) {
+				let dolls = this.dollList;
+				if (id == 0) {
+					dolls = this.dollList;
+				} else {
+					dolls = this.dollList.filter((item) => {
+						return item.id === id;
+					});
+				}
+				return dolls;
+			},
+			tabChange(e) {
+				console.log(e);
+				this.tabIndex = e.index
+			},
+			// 切换tab
+			ontabtap(e) {
+				console.log(e)
+				let index = e.index;
+
+				this.switchTab(index);
+			},
+			switchTab(index) {
+
+				if (this.tabIndex === index) {
+					return;
+				}
+				this.tabIndex = index;
+				this.setSwiperHeight()
+			},
+			onswiperchange(e) {
+				let index = e.target.current || e.detail.current;
+				this.tabIndex = index;
+				this.setSwiperHeight()
+			},
+			onswiperscroll() {
+
+			},
+			animationfinish() {},
+			//机器列表
+			navToMachinePage(item) {
+			    if(!this.user){
+			        uni.navigateTo({
+			        	url: '/pages/public/login'
+			        })
+			        return
+			    }
+				let id = item.id;
+				let machineIds = item.machineIds;
+				if(machineIds.length == 0){
+					uni.showToast({title:"暂无机器可用", icon:"none", mask:true});
+					return;
+				}else if(machineIds.length == 1){
+					uni.setStorageSync('machineId', machineIds[0]);
+					uni.navigateTo({
+						url: `/pages/machine/game`
+					})
+				}else {
+					this.selectDollName = item.name;
+					// uni.showLoading();
+					uni.http.get(
+						'machine/list/' + item.id,
+					).then(res=>{
+						this.machineList = res.data.machineList || [];
+					})
+					this.$refs.guiactionsheet.open();
+					/* uni.navigateTo({
+						url: `/pages/machine/machine?doll=` + encodeURIComponent(JSON.stringify(item))
+					}) */
+				}
+			},
+			navigateTo(url) {
+				if (!this.user) {
+					url = '/pages/public/login';
+				}
+				uni.navigateTo({
+					url: url
+				});
+			},
+			switchBottomTab(url) {
+				uni.switchTab({
+					url: url
+				});
+			},
+			setSwiperHeight() {
+				let element = "#content-wrap" + this.tabIndex;
+				let query = uni.createSelectorQuery().in(this);
+				query.select(element).boundingClientRect();
+				query.exec((res) => {
+					if (res && res[0]) {
+						this.swiperHeight = res[0].height + 250 + "rpx";
+						console.log(res[0])
+					}
+				});
+			}
+		}
+	}
+</script>
+
+<style>
+	.tab-box {
+		flex: 1;
+	}
+	
+	.custom-style{
+		font-weight: bold;
+		color: #ff0000;
+	}
+</style>
